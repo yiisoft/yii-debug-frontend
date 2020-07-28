@@ -11,3 +11,11 @@ trim_trailing_whitespace = true
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+[*.js]
+ij_javascript_comma_on_new_line = true
+ij_javascript_enforce_trailing_comma = whenmultiline
+
+[*.ts]
+ij_typescript_comma_on_new_line = true
+ij_typescript_enforce_trailing_comma = whenmultiline
