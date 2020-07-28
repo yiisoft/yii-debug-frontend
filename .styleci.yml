@@ -1,6 +1,16 @@
-preset: psr12
-
-finder:
-  exclude:
-    - docs
-    - vendor
+ts:
+  tab-width: 4
+  use-tabs: false
+  print-width: 120
+  double-quotes: false
+  trailing-commas: es5
+  semicolons: true
+  arrow-parens: always
+  bracket-spacing: true
+  finder:
+    exclude:
+      - "modules"
+      - "node_modules"
+      - "storage"
+      - "vendor"
+    name: "*.ts"
