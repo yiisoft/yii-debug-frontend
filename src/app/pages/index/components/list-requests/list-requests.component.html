@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Available Debug Data</h1>
   <mat-spinner *ngIf="loading"></mat-spinner>
-  <p *ngIf="!loading">Показаны записи 1-{{debugsList.length}} из {{debugsList.length}}</p>
+  <p *ngIf="!loading">1-{{debugsList.length}} of {{debugsList.length}} records are displayed</p>
   <table *ngIf="!loading" mat-table [dataSource]="debugsList" class="mat-elevation-z8">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef>#</th>
