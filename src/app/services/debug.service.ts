@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { environment } from '@env/environment';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Debug } from '../models/Debug';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DebugService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private api: ApiService) { }
 
-  getList() {
-    return this.http.get<any>(`${environment.apiUrl}/debug`)
-      .pipe(map(infos => infos));
+  getList(): Observable<Debug[]> {
+    return this.api.get('/debug');
+  }
+
+  getDetails(id: string): Observable<any> {
+    return this.api.get('/debug/view/yii-debug-' + id);
   }
 }

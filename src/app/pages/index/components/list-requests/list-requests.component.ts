@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {DebugService} from '../../../../services/debug.service';
-import {HttpErrorResponse} from '@angular/common/http';
-import {MatIconRegistry} from '@angular/material/icon';
-import {DomSanitizer} from '@angular/platform-browser';
+import { DebugService } from '../../../../services/debug.service';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Debug } from '../../../../models/Debug';
 
 @Component({
   selector: 'app-list-requests',
@@ -11,7 +11,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class ListRequestsComponent implements OnInit {
   loading: boolean = false;
-  debugsList: any[] = [];
+  debugsList: Debug[] = [];
   displayedColumns: string[] = ['position', 'tag', 'ip', 'method', 'isAjax', 'url', 'code', 'memory', 'time'];
 
   constructor(private debugService: DebugService,
@@ -34,19 +34,7 @@ export class ListRequestsComponent implements OnInit {
     this.debugService.getList().subscribe(
       response => {
         this.loading = false;
-        if (response.success) {
-          this.debugsList = response.data;
-        } else {
-          console.log(response.error);
-        }
-      },
-      error => {
-        this.loading = false;
-        if (error instanceof HttpErrorResponse) {
-          console.log(error.statusText);
-        } else {
-          console.log(error);
-        }
+        this.debugsList = response;
       }
     );
   }
