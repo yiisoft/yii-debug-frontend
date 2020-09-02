@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DebugService } from '../../../../services/debug.service';
 
@@ -9,18 +9,12 @@ import { DebugService } from '../../../../services/debug.service';
 })
 export class ConfigurationComponent implements OnInit {
   id: string;
-  debug: any;
+  @Input() debug: any;
 
-  constructor(private route: ActivatedRoute,
-              private debugService: DebugService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.queryParams.id;
-    this.debugService.getDetails(this.id).subscribe(
-      response => {
-        this.debug = response;
-      }
-    );
   }
 
 }

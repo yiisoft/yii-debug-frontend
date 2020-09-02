@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   get(method: string, params?: any): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}` + method)
+    return this.http.get<any>(`${environment.apiUrl}` + method, {params})
       .pipe(map(infos => infos.data));
   }
 }

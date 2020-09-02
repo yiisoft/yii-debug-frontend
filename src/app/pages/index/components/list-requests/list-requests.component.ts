@@ -39,13 +39,12 @@ export class ListRequestsComponent implements OnInit {
     );
   }
 
-  formatMemory(memory: number) {
-    const val: number = Math.round(memory / 10485.76) / 100;
-    return String(val) + ' MB';
+  formatMemory(memory: number): string {
+    return String((Number(memory / 1048576)).toFixed(0)) + ' MB';
   }
 
-  formatTime(time: number) {
-    return String(Math.round(time * 1000)) + ' ms';
+  formatTime(time: number): string {
+    return String((Number(time * 1000)).toFixed(0)) + ' ms';
   }
 
   formatID(id: string) {

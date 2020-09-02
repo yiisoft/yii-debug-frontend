@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-side-nav-bar',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav-bar.component.css']
 })
 export class SideNavBarComponent implements OnInit {
-
+  @Input() collectorsList: string[] = [];
   constructor() { }
 
   ngOnInit(): void {
