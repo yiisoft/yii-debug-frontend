@@ -1,4 +1,4 @@
 <div class="container">
-  <h1 *ngIf="id">Debug details: {{id}}</h1>
-  {{debug | json}}
+  <h1 *ngIf="collector">{{ extractCollectorName(collector) }}</h1>
+  <pre *ngIf="debugDetails">{{debugDetails[collector] | json}}</pre>
 </div>

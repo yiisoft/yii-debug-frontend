@@ -1,4 +1,4 @@
-export class Debug {
+export interface DebugNode {
   id: string;
   time: number;
   memory: bigint;

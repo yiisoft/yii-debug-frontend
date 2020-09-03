@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DebugService } from '../../../../services/debug.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Debug } from '../../../../models/Debug';
+import { DebugNode } from '../../../../models/DebugNode';
 
 @Component({
   selector: 'app-list-requests',
@@ -11,7 +11,7 @@ import { Debug } from '../../../../models/Debug';
 })
 export class ListRequestsComponent implements OnInit {
   loading: boolean = false;
-  debugsList: Debug[] = [];
+  debugsList: DebugNode[] = [];
   displayedColumns: string[] = ['position', 'tag', 'ip', 'method', 'isAjax', 'url', 'code', 'memory', 'time'];
 
   constructor(private debugService: DebugService,
@@ -40,7 +40,7 @@ export class ListRequestsComponent implements OnInit {
   }
 
   formatMemory(memory: number): string {
-    return String((Number(memory / 1048576)).toFixed(0)) + ' MB';
+    return String((Number(memory / 1048576)).toFixed(3)) + ' MB';
   }
 
   formatTime(time: number): string {

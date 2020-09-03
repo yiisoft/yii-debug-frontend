@@ -9,7 +9,17 @@ import { MatListModule } from '@angular/material/list';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
+    component: ViewLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: ConfigurationComponent,
+      },
+    ],
+  },
+  {
+    path: ':id/:collector',
     component: ViewLayoutComponent,
     children: [
       {

@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Debug } from '../models/Debug';
+import { Observable, Subject } from 'rxjs';
+import { DebugNode } from '../models/DebugNode';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DebugService {
+  private debugNode: Subject<any> = new Subject<any>();
 
   constructor(private api: ApiService) { }
 
-  getList(): Observable<Debug[]> {
+  node$ = this.debugNode.asObservable();
+
+  addNode(data: any) {
+    this.debugNode.next(data);
+  }
+
+  getList(): Observable<DebugNode[]> {
     return this.api.get('/debug');
   }
 
