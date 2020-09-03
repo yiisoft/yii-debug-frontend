@@ -38,6 +38,7 @@ export class ConfigurationComponent implements OnInit {
 
       for (const collector of this.collectorsList) {
         if ('EventCollector' === this.extractCollectorName(collector) && !Common.isEmpty(this.debugDetails[collector])) {
+          this.eventsList = [];
           for (const eventRecord of this.debugDetails[collector]) {
             this.eventsList.push(new EventNode(eventRecord));
           }
