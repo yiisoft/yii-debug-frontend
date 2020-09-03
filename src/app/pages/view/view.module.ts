@@ -6,6 +6,7 @@ import { SideNavBarComponent } from './shared/components/side-nav-bar/side-nav-b
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
   {
@@ -37,10 +38,11 @@ const routes: Routes = [
     ViewLayoutComponent,
   ],
   imports: [
-      RouterModule.forChild(routes),
-      CommonModule,
-      MatSidenavModule,
-      MatListModule,
+    RouterModule.forChild(routes),
+    CommonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTableModule,
   ],
 })
 export class ViewModule {

@@ -40,11 +40,11 @@ export class ListRequestsComponent implements OnInit {
   }
 
   formatMemory(memory: number): string {
-    return String((Number(memory / 1048576)).toFixed(3)) + ' MB';
+    return (Number(memory / 1048576)).toFixed(3) + ' MB';
   }
 
   formatTime(time: number): string {
-    return String((Number(time * 1000)).toFixed(0)) + ' ms';
+    return (Number(time * 1000)).toFixed(0) + ' ms';
   }
 
   formatID(id: string) {
