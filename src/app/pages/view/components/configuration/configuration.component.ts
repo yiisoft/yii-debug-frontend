@@ -1,7 +1,7 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DebugService } from '../../../../services/debug.service';
-import {Common} from '../../../../helpers/Common';
+import { Common } from '../../../../helpers/Common';
 
 @Component({
   selector: 'app-configuration',

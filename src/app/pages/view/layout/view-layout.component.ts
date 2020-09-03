@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DebugService } from '../../../services/debug.service';
-import {Common} from '../../../helpers/Common';
+import { Common } from '../../../helpers/Common';
 
 @Component({
   selector: 'app-view-layout',
