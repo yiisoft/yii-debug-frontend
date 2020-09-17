@@ -157,6 +157,6 @@
   },
   "defaultProject": "yii-debug-frontend",
   "cli": {
-    "analytics": "73d280fd-3ee5-4705-80aa-64acb012c93d"
+    "analytics": false
   }
 }

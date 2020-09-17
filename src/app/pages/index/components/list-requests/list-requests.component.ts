@@ -14,16 +14,7 @@ export class ListRequestsComponent implements OnInit {
   debugsList: DebugNode[] = [];
   displayedColumns: string[] = ['position', 'tag', 'ip', 'method', 'isAjax', 'url', 'code', 'memory', 'time'];
 
-  constructor(private debugService: DebugService,
-              iconRegistry: MatIconRegistry,
-              sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
-      'check',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/yes-icon.svg'));
-    iconRegistry.addSvgIcon(
-      'ban',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/no-icon.svg'));
-  }
+  constructor(private debugService: DebugService) {}
 
   ngOnInit(): void {
     this.getDebugsList();
