@@ -1,0 +1,9 @@
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a.active {
+  font-weight: 600;
+  color: #f44336;
+}

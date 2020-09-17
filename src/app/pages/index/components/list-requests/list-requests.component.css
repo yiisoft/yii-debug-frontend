@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 100%;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.label-success {
+  background-color: #008b00;
+}
+
+.label-info {
+  background-color: #26C6DA;
+}
+
+.label-danger {
+  background-color: #f44336;;
+}
+
+@media screen and (min-width: 1230px) {
+  .container {
+    max-width: 1230px;
+    margin: 0 auto;
+  }
+}
+
+table {
+  width: 100%;
+}

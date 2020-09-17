@@ -1,0 +1,9 @@
+.container {
+  padding: 0 15px;
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding-left: 15px;
+  padding-right: 15px;
+}

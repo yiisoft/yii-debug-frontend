@@ -1,7 +1,7 @@
-View layout
-<mat-drawer-container>
-  <mat-drawer mode="side" opened>
-    <app-side-nav-bar></app-side-nav-bar>
+Debug panel for {{id}} goes here
+<mat-drawer-container class="container" [autosize]="true">
+  <mat-drawer class="sidenav" mode="side" opened>
+    <app-side-nav-bar [id]="id" [collectorsList]="collectorsList" [currentCollector]="collector"></app-side-nav-bar>
   </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>
