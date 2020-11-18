@@ -12,6 +12,5 @@
 | Q                | A
 | ---------------- | ---
 | Version          | 1.0.?
-| Node version     | 10.22
-| Angular version  | 10
-| Operating system | 
+| PHP version      | 
+| Operating system |
