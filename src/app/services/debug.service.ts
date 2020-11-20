@@ -22,6 +22,6 @@ export class DebugService {
   }
 
   getDetails(id: string): Observable<any> {
-    return this.api.get('/debug/view/yii-debug-' + id);
+    return this.api.get('/debug/view/' + id);
   }
 }
