@@ -13,6 +13,7 @@ export class ViewLayoutComponent implements OnInit {
   collector: string;
   debugDetails: any;
   collectorsList: string[] = [];
+  private isLoaded: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -28,15 +29,22 @@ export class ViewLayoutComponent implements OnInit {
   }
 
   initialiseState(): void {
-    this.debugService.getDetails(this.id).subscribe(
-      response => {
-        this.debugDetails = response;
-        this.debugService.addNode(response);
-        this.collectorsList = Common.getCollectorsList(this.debugDetails);
-        if (Common.isEmpty(this.collector) && this.collectorsList.length) {
+    if (this.isLoaded) {
+      this.debugService.addNode(this.debugDetails);
+      return;
+    }
+    this.debugService
+      .getDetails(this.id)
+      .subscribe(
+        response => {
+          this.debugDetails = response;
+          this.debugService.addNode(response);
+          this.collectorsList = Common.getCollectorsList(this.debugDetails);
+          if (Common.isEmpty(this.collector) && this.collectorsList.length) {
             this.collector = this.collectorsList[0];
+          }
+          this.isLoaded = true;
         }
-      }
-    );
+      );
   }
 }
