@@ -8,10 +8,11 @@ import { ApiService } from './api.service';
 })
 export class DebugService {
   private debugNode: Subject<any> = new Subject<any>();
+  public node$ = this.debugNode.asObservable();
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService) {
+  }
 
-  node$ = this.debugNode.asObservable();
 
   addNode(data: any) {
     this.debugNode.next(data);
