@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ViewLayoutComponent } from './view-layout.component';
 
@@ -6,7 +6,7 @@ describe('ViewLayoutComponent', () => {
   let component: ViewLayoutComponent;
   let fixture: ComponentFixture<ViewLayoutComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ViewLayoutComponent],
     })
