@@ -8,7 +8,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ci:test": "ng test --watch=false --browsers=ChromeHeadlessCustom --code-coverage",
     "ci:build": "ng build --prod"
   },
   "private": true,
