@@ -13,7 +13,7 @@ This extension is a frontend for [Yii Debug API](https://github.com/yiisoft/yii-
 
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/yii-debug-api/v/stable.png)](https://packagist.org/packages/yiisoft/yii-debug-frontend)
 [![Total Downloads](https://poser.pugx.org/yiisoft/yii-debug-api/downloads.png)](https://packagist.org/packages/yiisoft/yii-debug-frontend)
-[![Build Status](https://travis-ci.com/yiisoft/yii-debug-api.svg?branch=master)](https://travis-ci.com/yiisoft/yii-debug-frontend)
+[![Build status](https://github.com/yiisoft/yii-debug-api/workflows/build/badge.svg)](https://github.com/yiisoft/yii-debug-api/actions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yiisoft/yii-debug-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/yii-debug-frontend/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/yiisoft/yii-debug-api/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/yii-debug-frontend/?branch=master)
 
