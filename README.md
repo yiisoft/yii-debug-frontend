@@ -6,7 +6,7 @@
     <br>
 </p>
 
-This extension is a frontend for [Yii Debug API](https://github.com/yiisoft/yii-debug-frontend) extension.
+This extension is a frontend for [Yii Debug API](https://github.com/yiisoft/yii-debug-api) extension.
 
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/yii-debug-frontend/v/stable.png)](https://packagist.org/packages/yiisoft/yii-debug-frontend)
 [![Total Downloads](https://poser.pugx.org/yiisoft/yii-debug-frontend/downloads.png)](https://packagist.org/packages/yiisoft/yii-debug-frontend)
