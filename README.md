@@ -4,9 +4,6 @@
     </a>
     <h1 align="center">Yii debug frontend</h1>
     <br>
-
-    test
-
 </p>
 
 This extension is a frontend for [Yii Debug API](https://github.com/yiisoft/yii-debug-api) extension.
