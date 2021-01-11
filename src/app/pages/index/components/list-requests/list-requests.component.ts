@@ -12,7 +12,6 @@ import { DebugService } from '../../../../services/debug.service';
 export class ListRequestsComponent implements OnInit, AfterViewInit {
   loading: boolean = false;
   debugsList: MatTableDataSource<DebugNode>;
-  sortedData: DebugNode[];
   displayedColumns: string[] = ['position', 'tag', 'ip', 'method', 'isAjax', 'url', 'code', 'memory', 'time'];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
