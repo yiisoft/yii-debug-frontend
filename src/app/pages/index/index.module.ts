@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListRequestsComponent } from './components/list-requests/list-requests.component';
-import { RouterModule, Routes } from '@angular/router';
-import { IndexLayoutComponent } from './layout/index-layout.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatTableModule } from '@angular/material/table';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { RouterModule, Routes } from '@angular/router';
+import { ListRequestsComponent } from './components/list-requests/list-requests.component';
+import { IndexLayoutComponent } from './layout/index-layout.component';
 
 const routes: Routes = [
   {
@@ -26,14 +27,15 @@ const routes: Routes = [
     ListRequestsComponent,
     IndexLayoutComponent,
   ],
-    imports: [
-        RouterModule.forChild(routes),
-        CommonModule,
-        MatSidenavModule,
-        MatTableModule,
-        MatProgressSpinnerModule,
-        MatIconModule,
-    ],
+  imports: [
+    RouterModule.forChild(routes),
+    CommonModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatSortModule,
+  ],
 })
 export class IndexModule {
 }

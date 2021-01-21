@@ -1,23 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { DebugService } from '../../../../services/debug.service';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { DebugNode } from '../../../../models/DebugNode';
+import { DebugService } from '../../../../services/debug.service';
 
 @Component({
   selector: 'app-list-requests',
   templateUrl: './list-requests.component.html',
   styleUrls: ['./list-requests.component.css'],
 })
-export class ListRequestsComponent implements OnInit {
+export class ListRequestsComponent implements OnInit, AfterViewInit {
   loading: boolean = false;
-  debugsList: DebugNode[] = [];
+  debugsList: MatTableDataSource<DebugNode>;
   displayedColumns: string[] = ['position', 'tag', 'ip', 'method', 'isAjax', 'url', 'code', 'memory', 'time'];
 
-  constructor(private debugService: DebugService) {}
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
+  constructor(private debugService: DebugService) { }
 
   ngOnInit(): void {
     this.getDebugsList();
+  }
+
+  ngAfterViewInit(): void {
+    if (this.debugsList) {
+      this.debugsList.sort = this.sort;
+    }
   }
 
   getDebugsList() {
@@ -25,7 +33,8 @@ export class ListRequestsComponent implements OnInit {
     this.debugService.getList().subscribe(
       response => {
         this.loading = false;
-        this.debugsList = response;
+        this.debugsList = new MatTableDataSource<DebugNode>(response);
+        this.debugsList.sort = this.sort;
       }
     );
   }
