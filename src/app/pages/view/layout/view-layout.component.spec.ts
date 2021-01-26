@@ -6,12 +6,13 @@ describe('ViewLayoutComponent', () => {
   let component: ViewLayoutComponent;
   let fixture: ComponentFixture<ViewLayoutComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ViewLayoutComponent],
-    })
-      .compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [ViewLayoutComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ViewLayoutComponent);

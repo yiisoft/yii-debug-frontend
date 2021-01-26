@@ -6,12 +6,13 @@ describe('IndexLayoutComponent', () => {
   let component: IndexLayoutComponent;
   let fixture: ComponentFixture<IndexLayoutComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [IndexLayoutComponent],
-    })
-      .compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [IndexLayoutComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(IndexLayoutComponent);

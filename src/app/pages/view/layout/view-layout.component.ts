@@ -10,20 +10,25 @@ import { Common } from '../../../helpers/Common';
 })
 export class ViewLayoutComponent implements OnInit {
   id: string;
-  collector: string;
-  debugDetails: any;
-  collectorsList: string[] = [];
-  private isLoaded: boolean = false;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private debugService: DebugService) {
-  }
+  collector: string;
+
+  debugDetails: any;
+
+  collectorsList: string[] = [];
+
+  private isLoaded = false;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private debugService: DebugService,
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-      this.collector = params['collector'];
+    this.route.params.subscribe((params: { [param: string]: string }) => {
+      this.id = params.id;
+      this.collector = params.collector;
       this.initialiseState(); // reset and set based on new parameter this time
     });
   }
@@ -33,18 +38,14 @@ export class ViewLayoutComponent implements OnInit {
       this.debugService.addNode(this.debugDetails);
       return;
     }
-    this.debugService
-      .getDetails(this.id)
-      .subscribe(
-        response => {
-          this.debugDetails = response;
-          this.debugService.addNode(response);
-          this.collectorsList = Common.getCollectorsList(this.debugDetails);
-          if (Common.isEmpty(this.collector) && this.collectorsList.length) {
-            this.collector = this.collectorsList[0];
-          }
-          this.isLoaded = true;
-        }
-      );
+    this.debugService.getDetails(this.id).subscribe((response) => {
+      this.debugDetails = response;
+      this.debugService.addNode(response);
+      this.collectorsList = Common.getCollectorsList(this.debugDetails);
+      if (Common.isEmpty(this.collector) && this.collectorsList.length) {
+        [this.collector] = this.collectorsList;
+      }
+      this.isLoaded = true;
+    });
   }
 }

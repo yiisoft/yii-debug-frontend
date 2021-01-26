@@ -23,10 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    ListRequestsComponent,
-    IndexLayoutComponent,
-  ],
+  declarations: [ListRequestsComponent, IndexLayoutComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
@@ -37,5 +34,4 @@ const routes: Routes = [
     MatSortModule,
   ],
 })
-export class IndexModule {
-}
+export class IndexModule {}

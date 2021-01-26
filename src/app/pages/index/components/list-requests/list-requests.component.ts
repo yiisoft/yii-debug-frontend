@@ -10,13 +10,25 @@ import { DebugService } from '../../../../services/debug.service';
   styleUrls: ['./list-requests.component.css'],
 })
 export class ListRequestsComponent implements OnInit, AfterViewInit {
-  loading: boolean = false;
+  loading = false;
+
   debugsList: MatTableDataSource<DebugNode>;
-  displayedColumns: string[] = ['position', 'tag', 'ip', 'method', 'isAjax', 'url', 'code', 'memory', 'time'];
+
+  displayedColumns: string[] = [
+    'position',
+    'tag',
+    'ip',
+    'method',
+    'isAjax',
+    'url',
+    'code',
+    'memory',
+    'time',
+  ];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private debugService: DebugService) { }
+  constructor(private debugService: DebugService) {}
 
   ngOnInit(): void {
     this.getDebugsList();
@@ -30,21 +42,19 @@ export class ListRequestsComponent implements OnInit, AfterViewInit {
 
   getDebugsList() {
     this.loading = true;
-    this.debugService.getList().subscribe(
-      response => {
-        this.loading = false;
-        this.debugsList = new MatTableDataSource<DebugNode>(response);
-        this.debugsList.sort = this.sort;
-      }
-    );
+    this.debugService.getList().subscribe((response) => {
+      this.loading = false;
+      this.debugsList = new MatTableDataSource<DebugNode>(response);
+      this.debugsList.sort = this.sort;
+    });
   }
 
   formatMemory(memory: number): string {
-    return (Number(memory / 1048576)).toFixed(3) + ' MB';
+    return `${Number(memory / 1048576).toFixed(3)} MB`;
   }
 
   formatTime(time: number): string {
-    return (Number(time * 1000)).toFixed(0) + ' ms';
+    return `${Number(time * 1000).toFixed(0)} ms`;
   }
 
   formatID(id: string) {

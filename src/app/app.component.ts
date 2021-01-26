@@ -1,10 +1,10 @@
-import {Component, OnDestroy, ViewChild} from '@angular/core';
-import { ErrorService } from './services/error.service';
+import { Component, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ErrorService } from './services/error.service';
 
 @Component({
   selector: 'app-root',
@@ -13,19 +13,23 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AppComponent implements OnDestroy {
   title = 'Yii Debugger';
+
   private ngUnsubscribe = new Subject();
 
-  constructor(private errorService: ErrorService,
-              private snackBar: MatSnackBar,
-              private iconRegistry: MatIconRegistry,
-              private sanitizer: DomSanitizer) {
-
+  constructor(
+    private errorService: ErrorService,
+    private snackBar: MatSnackBar,
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer,
+  ) {
     iconRegistry.addSvgIcon(
       'check',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/yes-icon.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('assets/img/yes-icon.svg'),
+    );
     iconRegistry.addSvgIcon(
       'ban',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/no-icon.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('assets/img/no-icon.svg'),
+    );
     this.initializeErrors();
   }
 
@@ -39,8 +43,11 @@ export class AppComponent implements OnDestroy {
   }
 
   private initializeErrors(): void {
-    this.errorService.getErrors().pipe(takeUntil(this.ngUnsubscribe)).subscribe((errors) => {
-      this.showError(errors.join('\n'));
-    });
+    this.errorService
+      .getErrors()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((errors) => {
+        this.showError(errors.join('\n'));
+      });
   }
 }

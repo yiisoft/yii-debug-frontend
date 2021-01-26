@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 import { ViewLayoutComponent } from './layout/view-layout.component';
 import { SideNavBarComponent } from './shared/components/side-nav-bar/side-nav-bar.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
   {
@@ -32,11 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    SideNavBarComponent,
-    ConfigurationComponent,
-    ViewLayoutComponent,
-  ],
+  declarations: [SideNavBarComponent, ConfigurationComponent, ViewLayoutComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
@@ -45,5 +41,4 @@ const routes: Routes = [
     MatTableModule,
   ],
 })
-export class ViewModule {
-}
+export class ViewModule {}

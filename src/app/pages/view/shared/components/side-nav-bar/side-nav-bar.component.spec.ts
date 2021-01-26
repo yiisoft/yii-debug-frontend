@@ -6,12 +6,13 @@ describe('SideNavBarComponent', () => {
   let component: SideNavBarComponent;
   let fixture: ComponentFixture<SideNavBarComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SideNavBarComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [SideNavBarComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SideNavBarComponent);

@@ -1,7 +1,10 @@
 export class EventNode {
   name: string;
+
   eventName: string;
+
   sender: string;
+
   time: Date;
 
   constructor(eventRecord: any) {

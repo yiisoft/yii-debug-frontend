@@ -6,11 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index-layout.component.css'],
 })
 export class IndexLayoutComponent implements OnInit {
-
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
+    // ...
   }
-
 }

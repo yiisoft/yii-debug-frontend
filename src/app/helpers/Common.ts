@@ -1,7 +1,11 @@
 export class Common {
   static isEmpty(val: any): boolean {
     let res = false;
-    if ('undefined' === typeof val || val === null || ('string' === typeof val && val.trim() === '')) {
+    if (
+      typeof val === 'undefined' ||
+      val === null ||
+      (typeof val === 'string' && val.trim() === '')
+    ) {
       res = true;
     }
     return res;
@@ -12,7 +16,7 @@ export class Common {
     return result[result.length - 1];
   }
 
-  static getCollectorsList(debugDetails: any) {
+  static getCollectorsList(debugDetails: any): string[] {
     const collectorsList: string[] = [];
     for (const prop in debugDetails) {
       if (debugDetails.hasOwnProperty(prop)) {
@@ -22,4 +26,3 @@ export class Common {
     return collectorsList;
   }
 }
-

@@ -2,16 +2,14 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ErrorService {
   private errors = new Subject<string[]>();
 
-  constructor() { }
+  constructor() {}
 
-  public addErrors = (errors: string[]): void =>
-    this.errors.next(errors)
+  public addErrors = (errors: string[]): void => this.errors.next(errors);
 
-  public getErrors = () =>
-    this.errors.asObservable()
+  public getErrors = () => this.errors.asObservable();
 }
