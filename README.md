@@ -19,7 +19,7 @@ This extension is a frontend for [Yii Debug API](https://github.com/yiisoft/yii-
 You'll need [NodeJs](https://nodejs.org/en/) version 12+.
 
 1. Clone this repository.
-2. Run `npm install` in project root directory.
+2. Run `yarn install` in project root directory.
 3. Edit your `environments.ts` file to configure the URL, where Yii debug API is located, i.e. :
    `apiUrl: 'http://yiidemo.test'`. Please notice, that you should only set the base URL of your Yii3 app.
 4. Run `ng serve --open` to start your application.
