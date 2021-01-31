@@ -16,6 +16,7 @@ jobs:
 
             node-version:
                 - 12.x
+                - 14.x
 
         steps:
             - name: Checkout
