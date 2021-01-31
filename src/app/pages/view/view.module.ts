@@ -9,36 +9,36 @@ import { SideNavBarComponent } from './shared/components/side-nav-bar/side-nav-b
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 
 const routes: Routes = [
-  {
-    path: ':id',
-    component: ViewLayoutComponent,
-    children: [
-      {
-        path: '',
-        component: ConfigurationComponent,
-      },
-    ],
-  },
-  {
-    path: ':id/:collector',
-    component: ViewLayoutComponent,
-    children: [
-      {
-        path: '',
-        component: ConfigurationComponent,
-      },
-    ],
-  },
+    {
+        path: ':id',
+        component: ViewLayoutComponent,
+        children: [
+            {
+                path: '',
+                component: ConfigurationComponent,
+            },
+        ],
+    },
+    {
+        path: ':id/:collector',
+        component: ViewLayoutComponent,
+        children: [
+            {
+                path: '',
+                component: ConfigurationComponent,
+            },
+        ],
+    },
 ];
 
 @NgModule({
-  declarations: [SideNavBarComponent, ConfigurationComponent, ViewLayoutComponent],
-  imports: [
-    RouterModule.forChild(routes),
-    CommonModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTableModule,
-  ],
+    declarations: [SideNavBarComponent, ConfigurationComponent, ViewLayoutComponent],
+    imports: [
+        RouterModule.forChild(routes),
+        CommonModule,
+        MatSidenavModule,
+        MatListModule,
+        MatTableModule,
+    ],
 })
 export class ViewModule {}

@@ -1,12 +1,12 @@
 <mat-list>
-  <ng-container *ngFor="let collector of collectorsList; let i = index">
-    <mat-list-item>
-      <a
-        [ngClass]="{ active: currentCollector === collector }"
-        [routerLink]="['/view', this.id, collector]"
-        >{{ extractCollectorName(collector) }}</a
-      ></mat-list-item
-    >
-    <mat-divider *ngIf="i < collectorsList.length - 1"></mat-divider>
-  </ng-container>
+    <ng-container *ngFor="let collector of collectorsList; let i = index">
+        <mat-list-item>
+            <a
+                [ngClass]="{ active: currentCollector === collector }"
+                [routerLink]="['/view', this.id, collector]"
+                >{{ extractCollectorName(collector) }}</a
+            ></mat-list-item
+        >
+        <mat-divider *ngIf="i < collectorsList.length - 1"></mat-divider>
+    </ng-container>
 </mat-list>

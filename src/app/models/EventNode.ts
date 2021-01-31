@@ -1,14 +1,19 @@
+type Event = {
+    name: string;
+    time: number;
+};
+
 export class EventNode {
-  name: string;
+    name: string;
 
-  eventName: string;
+    eventName: string;
 
-  sender: string;
+    sender: string;
 
-  time: Date;
+    time: Date;
 
-  constructor(eventRecord: any) {
-    this.name = eventRecord.name;
-    this.time = new Date(eventRecord.time * 1000);
-  }
+    constructor(eventRecord: Event) {
+        this.name = eventRecord.name;
+        this.time = new Date(eventRecord.time * 1000);
+    }
 }

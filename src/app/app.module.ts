@@ -14,22 +14,22 @@ import { ErrorService } from './services/error.service';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    IndexModule,
-    ViewModule,
-    MatSidenavModule,
-    HttpClientModule,
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    ErrorService,
-    MatSnackBar,
-    Overlay,
-  ],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        IndexModule,
+        ViewModule,
+        MatSidenavModule,
+        HttpClientModule,
+    ],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        ErrorService,
+        MatSnackBar,
+        Overlay,
+    ],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

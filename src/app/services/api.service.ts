@@ -6,14 +6,17 @@ import { map } from 'rxjs/operators';
 import { ErrorService } from './error.service';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpClient, private errorService: ErrorService) {}
+    constructor(private http: HttpClient, private errorService: ErrorService) {}
 
-  get(method: string, params?: { [param: string]: string | string[] }): Observable<any> {
-    return this.http
-      .get<any>(`${environment.apiUrl}${method}`, { params })
-      .pipe(map((infos: { [param: string]: string[] }) => infos.data));
-  }
+    get<T>(
+        method: string,
+        params?: { [param: string]: string | string[] },
+    ): Observable<T | string[]> {
+        return this.http
+            .get(`${environment.apiUrl}${method}`, { params })
+            .pipe(map((infos: { [param: string]: string[] }) => infos.data));
+    }
 }

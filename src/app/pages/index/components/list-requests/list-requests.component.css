@@ -1,44 +1,44 @@
 .container {
-  width: 100%;
-  padding: 0 15px;
+    width: 100%;
+    padding: 0 15px;
 }
 
 .label {
-  display: inline;
-  padding: 0.2em 0.6em 0.3em;
-  font-size: 100%;
-  font-weight: 500;
-  line-height: 1;
-  color: #ffffff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 0.25em;
+    display: inline;
+    padding: 0.2em 0.6em 0.3em;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
 }
 
 .label-success {
-  background-color: #008b00;
+    background-color: #008b00;
 }
 
 .label-info {
-  background-color: #26c6da;
+    background-color: #26c6da;
 }
 
 .label-danger {
-  background-color: #f44336;
+    background-color: #f44336;
 }
 
 @media screen and (min-width: 1230px) {
-  .container {
-    max-width: 1230px;
-    margin: 0 auto;
-  }
+    .container {
+        max-width: 1230px;
+        margin: 0 auto;
+    }
 }
 
 table {
-  width: 100%;
+    width: 100%;
 }
 
 th.mat-sort-header-sorted {
-  color: black;
+    color: black;
 }

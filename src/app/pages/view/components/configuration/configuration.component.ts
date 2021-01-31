@@ -5,71 +5,71 @@ import { Common } from '../../../../helpers/Common';
 import { EventNode } from '../../../../models/EventNode';
 
 @Component({
-  selector: 'app-configuration',
-  templateUrl: './configuration.component.html',
-  styleUrls: ['./configuration.component.css'],
+    selector: 'app-configuration',
+    templateUrl: './configuration.component.html',
+    styleUrls: ['./configuration.component.css'],
 })
 export class ConfigurationComponent implements OnInit {
-  id: string;
+    id: string;
 
-  shortCollectorName: string;
+    shortCollectorName: string;
 
-  collector: string;
+    collector: string;
 
-  debugDetails: any;
+    debugDetails: any;
 
-  eventsList: EventNode[] = [];
+    eventsList: EventNode[] = [];
 
-  collectorsList: string[] = [];
+    collectorsList: string[] = [];
 
-  displayedColumns: string[] = ['position', 'time', 'name'];
+    displayedColumns: string[] = ['position', 'time', 'name'];
 
-  constructor(private route: ActivatedRoute, private debugService: DebugService) {}
+    constructor(private route: ActivatedRoute, private debugService: DebugService) {}
 
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.id = params.id;
-      this.collector = params.collector;
-      this.initialiseState(); // reset and set based on new parameter this time
-    });
-  }
-
-  initialiseState(): void {
-    this.debugService.node$.subscribe((data) => {
-      this.debugDetails = data;
-      this.collectorsList = Common.getCollectorsList(this.debugDetails);
-      this.setDefaultCollector();
-      this.shortCollectorName = this.extractCollectorName(this.collector);
-
-      for (const collector of this.collectorsList) {
-        if (
-          this.extractCollectorName(collector) === 'EventCollector' &&
-          !Common.isEmpty(this.debugDetails[collector])
-        ) {
-          this.eventsList = [];
-          for (const eventRecord of this.debugDetails[collector]) {
-            this.eventsList.push(new EventNode(eventRecord));
-          }
-        }
-      }
-    });
-  }
-
-  setDefaultCollector(): void {
-    if (Common.isEmpty(this.collector) && this.collectorsList.length) {
-      this.collector = this.collectorsList[0];
+    ngOnInit(): void {
+        this.route.params.subscribe((params) => {
+            this.id = params.id;
+            this.collector = params.collector;
+            this.initialiseState(); // reset and set based on new parameter this time
+        });
     }
-  }
 
-  extractCollectorName(collector: string): string {
-    return Common.extractCollectorName(collector);
-  }
+    initialiseState(): void {
+        this.debugService.node$.subscribe((data) => {
+            this.debugDetails = data;
+            this.collectorsList = Common.getCollectorsList(this.debugDetails);
+            this.setDefaultCollector();
+            this.shortCollectorName = this.extractCollectorName(this.collector);
 
-  formatTime(time: Date) {
-    const h = `0${time.getHours()}`.slice(-2);
-    const m = `0${time.getMinutes()}`.slice(-2);
-    const s = `0${time.getSeconds()}`.slice(-2);
-    const ms = time.getMilliseconds();
-    return `${h}:${m}:${s}.${ms}`;
-  }
+            for (const collector of this.collectorsList) {
+                if (
+                    this.extractCollectorName(collector) === 'EventCollector' &&
+                    !Common.isEmpty(this.debugDetails[collector])
+                ) {
+                    this.eventsList = [];
+                    for (const eventRecord of this.debugDetails[collector]) {
+                        this.eventsList.push(new EventNode(eventRecord));
+                    }
+                }
+            }
+        });
+    }
+
+    setDefaultCollector(): void {
+        if (Common.isEmpty(this.collector) && this.collectorsList.length) {
+            this.collector = this.collectorsList[0];
+        }
+    }
+
+    extractCollectorName(collector: string): string {
+        return Common.extractCollectorName(collector);
+    }
+
+    formatTime(time: Date) {
+        const h = `0${time.getHours()}`.slice(-2);
+        const m = `0${time.getMinutes()}`.slice(-2);
+        const s = `0${time.getSeconds()}`.slice(-2);
+        const ms = time.getMilliseconds();
+        return `${h}:${m}:${s}.${ms}`;
+    }
 }

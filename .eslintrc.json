@@ -1,7 +1,9 @@
 {
   "root": true,
   "env": {
-    "es6": true
+    "es6": true,
+    "node": true,
+    "jasmine": true
   },
   "extends": [
     "eslint:recommended"
@@ -30,7 +32,8 @@
         "plugin:prettier/recommended"
       ],
       "rules": {
-        "import/prefer-default-export": 0
+        "import/prefer-default-export": 0,
+        "class-methods-use-this": 1
       }
     },
     {
