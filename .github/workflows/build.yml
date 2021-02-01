@@ -1,51 +1,54 @@
 on:
-    - pull_request
-    - push
+  - pull_request
+  - push
 
 name: build
 
 jobs:
-    tests:
-        name: Node ${{ matrix.node-version }}-${{ matrix.os }}
-        runs-on: ${{ matrix.os }}
+  tests:
+    name: Node ${{ matrix.node-version }}-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
-        strategy:
-          matrix:
-            os:
-                - ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
 
-            node-version:
-                - 12.x
-                - 14.x
+        node-version:
+          - 12.x
+          - 14.x
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-            - name: Determine yarn cache directory
-              run: echo "YARN_CACHE_DIR=$(yarn cache dir)" >> $GITHUB_ENV
+      - name: Determine yarn cache directory
+        run: echo "YARN_CACHE_DIR=$(yarn cache dir)" >> $GITHUB_ENV
 
-            - name: Cache node modules
-              uses: actions/cache@v2
-              with:
-                path: ${{ env.YARN_CACHE_DIR }}
-                key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-                restore-keys: |
-                    ${{ runner.os }}-node-
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.YARN_CACHE_DIR }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v2
-              with:
-                node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
 
-            - name: Install Dependencies
-              run: yarn install
+      - name: Install Dependencies
+        run: yarn install
 
-            - name: Build Application
-              run: yarn ci:build
+      - name: Build Application
+        run: yarn ci:build
 
-            - name: Upload coverage to Codecov
-              uses: codecov/codecov-action@v1
-              with:
-                token: ${{ secrets.CODECOV_TOKEN }}
-                file: ./coverage.xml
+      - name: Test with Karma
+        run: yarn ci:test
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
