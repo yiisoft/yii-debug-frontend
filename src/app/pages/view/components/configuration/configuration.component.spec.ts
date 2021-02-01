@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 import { ConfigurationComponent } from './configuration.component';
 
 describe('ConfigurationComponent', () => {
@@ -10,6 +13,7 @@ describe('ConfigurationComponent', () => {
         waitForAsync(() => {
             TestBed.configureTestingModule({
                 declarations: [ConfigurationComponent],
+                imports: [RouterTestingModule, HttpClientModule],
             }).compileComponents();
         }),
     );
