@@ -3,7 +3,8 @@
   "env": {
     "es6": true,
     "node": true,
-    "jasmine": true
+    "jasmine": true,
+    "protractor": true
   },
   "extends": [
     "eslint:recommended"
@@ -33,7 +34,8 @@
       ],
       "rules": {
         "import/prefer-default-export": 0,
-        "class-methods-use-this": 1
+        "class-methods-use-this": 1,
+        "@typescript-eslint/no-floating-promises": 1
       }
     },
     {

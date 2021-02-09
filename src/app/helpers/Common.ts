@@ -1,12 +1,16 @@
+import { ObjectLiteral } from '../models/ObjectLiteral';
+
 export class Common {
-    static isEmpty(val: string | undefined): boolean {
+    static isEmpty(value: string | Array<unknown> | undefined): boolean {
         let res = false;
         if (
-            typeof val === 'undefined' ||
-            val === null ||
-            (typeof val === 'string' && val.trim() === '')
+            typeof value === 'undefined' ||
+            value === null ||
+            (typeof value === 'string' && value.trim() === '')
         ) {
             res = true;
+        } else if (Array.isArray(value)) {
+            return value.length === 0;
         }
         return res;
     }
@@ -16,11 +20,11 @@ export class Common {
         return result[result.length - 1];
     }
 
-    static getCollectorsList(debugDetails: { [prop: string]: unknown }): string[] {
+    static getCollectorsList<T>(debugDetails: ObjectLiteral<T>): string[] {
         const collectorsList: string[] = [];
-        for (let i = 0; i < Object.keys(debugDetails).length; i++) {
+        for (let i = 0; i < Object.keys(debugDetails).length; i += 1) {
             const prop = Object.keys(debugDetails)[i];
-            if (debugDetails.hasOwnProperty(prop)) {
+            if (prop in debugDetails) {
                 collectorsList.push(prop);
             }
         }

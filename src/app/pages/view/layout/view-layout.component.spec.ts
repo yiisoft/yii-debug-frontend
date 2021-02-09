@@ -8,8 +8,8 @@ describe('ViewLayoutComponent', () => {
     let fixture: ComponentFixture<ViewLayoutComponent>;
 
     beforeEach(
-        waitForAsync(() => {
-            TestBed.configureTestingModule({
+        waitForAsync(async () => {
+            await TestBed.configureTestingModule({
                 declarations: [ViewLayoutComponent],
                 imports: [RouterTestingModule, HttpClientTestingModule],
             }).compileComponents();
@@ -22,7 +22,7 @@ describe('ViewLayoutComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    it('should create', async () => {
+        await expect(component).toBeTruthy();
     });
 });

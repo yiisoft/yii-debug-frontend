@@ -14,7 +14,7 @@ describe('DebugService', () => {
         service = TestBed.inject(DebugService);
     });
 
-    it('should be created', () => {
-        expect(service).toBeTruthy();
+    it('should be created', async () => {
+        await expect(service).toBeTruthy();
     });
 });

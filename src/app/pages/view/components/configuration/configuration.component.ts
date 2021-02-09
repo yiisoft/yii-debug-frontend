@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DebugService } from '../../../../services/debug.service';
 import { Common } from '../../../../helpers/Common';
-import { EventNode } from '../../../../models/EventNode';
+import { EventNode, Event } from '../../../../models/EventNode';
+import { ObjectLiteral } from '../../../../models/ObjectLiteral';
 
 @Component({
     selector: 'app-configuration',
@@ -16,7 +17,7 @@ export class ConfigurationComponent implements OnInit {
 
     collector: string;
 
-    debugDetails: any;
+    debugDetails: ObjectLiteral<string[] | Event[]>;
 
     eventsList: EventNode[] = [];
 
@@ -27,7 +28,7 @@ export class ConfigurationComponent implements OnInit {
     constructor(private route: ActivatedRoute, private debugService: DebugService) {}
 
     ngOnInit(): void {
-        this.route.params.subscribe((params) => {
+        this.route.params.subscribe((params: ObjectLiteral<string>) => {
             this.id = params.id;
             this.collector = params.collector;
             this.initialiseState(); // reset and set based on new parameter this time
@@ -35,29 +36,29 @@ export class ConfigurationComponent implements OnInit {
     }
 
     initialiseState(): void {
-        this.debugService.node$.subscribe((data) => {
+        this.debugService.node$.subscribe((data: ObjectLiteral) => {
             this.debugDetails = data;
             this.collectorsList = Common.getCollectorsList(this.debugDetails);
             this.setDefaultCollector();
             this.shortCollectorName = this.extractCollectorName(this.collector);
 
-            for (const collector of this.collectorsList) {
+            this.collectorsList.forEach((collector) => {
                 if (
                     this.extractCollectorName(collector) === 'EventCollector' &&
                     !Common.isEmpty(this.debugDetails[collector])
                 ) {
                     this.eventsList = [];
-                    for (const eventRecord of this.debugDetails[collector]) {
+                    this.debugDetails[collector].forEach((eventRecord) => {
                         this.eventsList.push(new EventNode(eventRecord));
-                    }
+                    });
                 }
-            }
+            });
         });
     }
 
     setDefaultCollector(): void {
-        if (Common.isEmpty(this.collector) && this.collectorsList.length) {
-            this.collector = this.collectorsList[0];
+        if (Common.isEmpty(this.collector)) {
+            [this.collector] = this.collectorsList;
         }
     }
 
@@ -65,7 +66,7 @@ export class ConfigurationComponent implements OnInit {
         return Common.extractCollectorName(collector);
     }
 
-    formatTime(time: Date) {
+    formatTime(time: Date): string {
         const h = `0${time.getHours()}`.slice(-2);
         const m = `0${time.getMinutes()}`.slice(-2);
         const s = `0${time.getSeconds()}`.slice(-2);

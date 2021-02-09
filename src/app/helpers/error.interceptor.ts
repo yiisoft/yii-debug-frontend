@@ -17,7 +17,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         return next.handle(request).pipe(
             catchError(
-                (response): Observable<never> => {
+                (response: HttpErrorResponse): Observable<never> => {
                     if (response instanceof HttpErrorResponse) {
                         if (response.status === 401) {
                             return;
@@ -35,7 +35,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                     this.errorService.addErrors([
                         `Error ${response.status} occurred while receiving data from server`,
                     ]);
-                    return throwError(response);
+                    throwError(response);
                 },
             ),
         );

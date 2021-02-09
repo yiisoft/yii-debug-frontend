@@ -9,8 +9,8 @@ describe('ErrorInterceptor', () => {
         }),
     );
 
-    it('should be created', () => {
+    it('should be created', async () => {
         const interceptor: ErrorInterceptor = TestBed.inject(ErrorInterceptor);
-        expect(interceptor).toBeTruthy();
+        await expect(interceptor).toBeTruthy();
     });
 });

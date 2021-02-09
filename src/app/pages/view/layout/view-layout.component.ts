@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DebugService } from '../../../services/debug.service';
 import { Common } from '../../../helpers/Common';
+import { ObjectLiteral } from '../../../models/ObjectLiteral';
 
 @Component({
     selector: 'app-view-layout',
@@ -13,7 +14,7 @@ export class ViewLayoutComponent implements OnInit {
 
     collector: string;
 
-    debugDetails: any;
+    debugDetails: ObjectLiteral;
 
     collectorsList: string[] = [];
 
@@ -38,7 +39,7 @@ export class ViewLayoutComponent implements OnInit {
             this.debugService.addNode(this.debugDetails);
             return;
         }
-        this.debugService.getDetails(this.id).subscribe((response) => {
+        this.debugService.getDetails(this.id).subscribe((response: ObjectLiteral) => {
             this.debugDetails = response;
             this.debugService.addNode(response);
             this.collectorsList = Common.getCollectorsList(this.debugDetails);

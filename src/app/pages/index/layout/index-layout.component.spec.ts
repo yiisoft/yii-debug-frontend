@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { IndexLayoutComponent } from './index-layout.component';
 
 describe('IndexLayoutComponent', () => {
@@ -7,8 +6,8 @@ describe('IndexLayoutComponent', () => {
     let fixture: ComponentFixture<IndexLayoutComponent>;
 
     beforeEach(
-        waitForAsync(() => {
-            TestBed.configureTestingModule({
+        waitForAsync(async () => {
+            await TestBed.configureTestingModule({
                 declarations: [IndexLayoutComponent],
             }).compileComponents();
         }),
@@ -20,7 +19,7 @@ describe('IndexLayoutComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    it('should create', async () => {
+        await expect(component).toBeTruthy();
     });
 });

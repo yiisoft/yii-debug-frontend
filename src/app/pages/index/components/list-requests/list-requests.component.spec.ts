@@ -8,8 +8,8 @@ describe('ListRequestsComponent', () => {
     let fixture: ComponentFixture<ListRequestsComponent>;
 
     beforeEach(
-        waitForAsync(() => {
-            TestBed.configureTestingModule({
+        waitForAsync(async () => {
+            await TestBed.configureTestingModule({
                 declarations: [ListRequestsComponent],
                 imports: [RouterTestingModule, HttpClientTestingModule],
             }).compileComponents();
@@ -22,7 +22,7 @@ describe('ListRequestsComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    it('should create', async () => {
+        await expect(component).toBeTruthy();
     });
 });

@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
     beforeEach(
-        waitForAsync(() => {
-            TestBed.configureTestingModule({
+        waitForAsync(async () => {
+            await TestBed.configureTestingModule({
                 imports: [RouterTestingModule, MatSidenavModule],
                 declarations: [AppComponent],
                 providers: [MatSnackBar, Overlay],
@@ -16,15 +16,17 @@ describe('AppComponent', () => {
         }),
     );
 
-    it('should create the app', () => {
+    it('should create the app', async () => {
         const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.debugElement.componentInstance;
-        expect(app).toBeTruthy();
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const app: AppComponent = fixture.debugElement.componentInstance;
+        await expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'Yii Debugger'`, () => {
+    it(`should have as title 'Yii Debugger'`, async () => {
         const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual('Yii Debugger');
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const app: AppComponent = fixture.debugElement.componentInstance;
+        await expect(app.title).toEqual('Yii Debugger');
     });
 });

@@ -44,7 +44,7 @@ jobs:
       - name: Build Application
         run: yarn ci:build
 
-      - name: Test with Karma
+      - name: Run tests with Karma
         run: yarn ci:test
 
       - name: Upload coverage to Codecov

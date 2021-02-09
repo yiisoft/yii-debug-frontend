@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { DebugNode } from '../../../../models/DebugNode';
+import { IndexNode } from '../../../../models/IndexNode';
 import { DebugService } from '../../../../services/debug.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { DebugService } from '../../../../services/debug.service';
 export class ListRequestsComponent implements OnInit, AfterViewInit {
     loading = false;
 
-    debugsList: MatTableDataSource<DebugNode>;
+    debugsList: MatTableDataSource<IndexNode>;
 
     displayedColumns: string[] = [
         'position',
@@ -40,11 +40,11 @@ export class ListRequestsComponent implements OnInit, AfterViewInit {
         }
     }
 
-    getDebugsList() {
+    getDebugsList(): void {
         this.loading = true;
         this.debugService.getList().subscribe((response) => {
             this.loading = false;
-            this.debugsList = new MatTableDataSource<DebugNode>(response);
+            this.debugsList = new MatTableDataSource<IndexNode>(response);
             this.debugsList.sort = this.sort;
         });
     }
@@ -57,19 +57,19 @@ export class ListRequestsComponent implements OnInit, AfterViewInit {
         return `${Number(time * 1000).toFixed(0)} ms`;
     }
 
-    formatID(id: string) {
+    formatID(id: string): string {
         return id.replace(/^yii-debug-/, '');
     }
 
-    isSuccessStatus(responseStatusCode: number) {
+    isSuccessStatus(responseStatusCode: number): boolean {
         return Math.floor(responseStatusCode / 100) === 2;
     }
 
-    isRedirectStatus(responseStatusCode: number) {
+    isRedirectStatus(responseStatusCode: number): boolean {
         return Math.floor(responseStatusCode / 100) === 3;
     }
 
-    isErrorResponse(responseStatusCode: number) {
+    isErrorResponse(responseStatusCode: number): boolean {
         return (
             Math.floor(responseStatusCode / 100) === 4 || Math.floor(responseStatusCode / 100) === 5
         );

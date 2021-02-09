@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'http://yii3.lc',
+    apiUrl: 'http://localhost:8080',
 };
 
 /*

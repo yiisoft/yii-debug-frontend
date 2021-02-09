@@ -7,8 +7,8 @@ describe('SideNavBarComponent', () => {
     let fixture: ComponentFixture<SideNavBarComponent>;
 
     beforeEach(
-        waitForAsync(() => {
-            TestBed.configureTestingModule({
+        waitForAsync(async () => {
+            await TestBed.configureTestingModule({
                 declarations: [SideNavBarComponent],
             }).compileComponents();
         }),
@@ -20,7 +20,7 @@ describe('SideNavBarComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
+    it('should create', async () => {
+        await expect(component).toBeTruthy();
     });
 });

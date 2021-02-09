@@ -1,6 +1,7 @@
-export interface DebugNode {
+export interface IndexNode {
     id: string;
     time: number;
+    timestamp: number;
     memory: bigint;
     requestUrl: string;
     requestMethod: string;
