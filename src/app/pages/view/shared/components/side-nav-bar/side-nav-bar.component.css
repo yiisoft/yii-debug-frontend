@@ -1,9 +1,9 @@
 a,
 a:visited {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a.active {
-  font-weight: 600;
-  color: #f44336;
+    font-weight: 600;
+    color: #f44336;
 }

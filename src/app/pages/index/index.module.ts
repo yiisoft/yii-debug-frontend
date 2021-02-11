@@ -10,32 +10,28 @@ import { ListRequestsComponent } from './components/list-requests/list-requests.
 import { IndexLayoutComponent } from './layout/index-layout.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: IndexLayoutComponent,
-    children: [
-      {
+    {
         path: '',
-        component: ListRequestsComponent,
-      },
-    ],
-  },
+        component: IndexLayoutComponent,
+        children: [
+            {
+                path: '',
+                component: ListRequestsComponent,
+            },
+        ],
+    },
 ];
 
 @NgModule({
-  declarations: [
-    ListRequestsComponent,
-    IndexLayoutComponent,
-  ],
-  imports: [
-    RouterModule.forChild(routes),
-    CommonModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatSortModule,
-  ],
+    declarations: [ListRequestsComponent, IndexLayoutComponent],
+    imports: [
+        RouterModule.forChild(routes),
+        CommonModule,
+        MatSidenavModule,
+        MatTableModule,
+        MatProgressSpinnerModule,
+        MatIconModule,
+        MatSortModule,
+    ],
 })
-export class IndexModule {
-}
+export class IndexModule {}
