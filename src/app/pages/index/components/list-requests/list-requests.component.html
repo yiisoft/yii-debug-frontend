@@ -38,6 +38,12 @@
             <th mat-header-cell *matHeaderCellDef>URL</th>
             <td mat-cell *matCellDef="let element">{{ element.requestUrl }}</td>
         </ng-container>
+        <ng-container matColumnDef="routeTime">
+            <th mat-header-cell *matHeaderCellDef>Route time</th>
+            <td mat-cell *matCellDef="let element">
+                <span class='label label-info'>{{ formatTime(element.routeTime || 0)}}</span>
+            </td>
+        </ng-container>
         <ng-container matColumnDef="code">
             <th mat-header-cell *matHeaderCellDef>Status code</th>
             <td mat-cell *matCellDef="let element">

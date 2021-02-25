@@ -21,6 +21,7 @@ export class ListRequestsComponent implements OnInit, AfterViewInit {
         'method',
         'isAjax',
         'url',
+        'routeTime',
         'code',
         'memory',
         'time',
