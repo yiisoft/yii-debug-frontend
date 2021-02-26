@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { ViewLayoutComponent } from './layout/view-layout.component';
 import { SideNavBarComponent } from './shared/components/side-nav-bar/side-nav-bar.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [
     {
@@ -39,6 +40,7 @@ const routes: Routes = [
         MatSidenavModule,
         MatListModule,
         MatTableModule,
+        SharedModule,
     ],
 })
 export class ViewModule {}

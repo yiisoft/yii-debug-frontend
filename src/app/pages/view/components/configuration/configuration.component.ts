@@ -25,6 +25,8 @@ export class ConfigurationComponent implements OnInit {
 
     displayedColumns: string[] = ['position', 'time', 'name'];
 
+    loading = true;
+
     constructor(private route: ActivatedRoute, private debugService: DebugService) {}
 
     ngOnInit(): void {
@@ -53,6 +55,7 @@ export class ConfigurationComponent implements OnInit {
                     });
                 }
             });
+            this.loading = false;
         });
     }
 

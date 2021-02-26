@@ -1,4 +1,5 @@
 Debug panel for {{ id }} goes here
+<yii-spinner *ngIf="!isLoaded"></yii-spinner>
 <mat-drawer-container class="container" [autosize]="true">
     <mat-drawer class="sidenav" mode="side" opened>
         <app-side-nav-bar

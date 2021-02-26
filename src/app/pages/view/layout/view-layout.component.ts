@@ -18,7 +18,7 @@ export class ViewLayoutComponent implements OnInit {
 
     collectorsList: string[] = [];
 
-    private isLoaded = false;
+    isLoaded = false;
 
     constructor(
         private route: ActivatedRoute,
