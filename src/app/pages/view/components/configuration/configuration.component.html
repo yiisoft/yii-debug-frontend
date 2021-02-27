@@ -21,5 +21,5 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    <pre *ngIf="debugDetails">{{ debugDetails[collector] | json }}</pre>
+    <ngx-json-viewer *ngIf='debugDetails' [json]="debugDetails[collector]" [expanded]="false"></ngx-json-viewer>
 </div>
