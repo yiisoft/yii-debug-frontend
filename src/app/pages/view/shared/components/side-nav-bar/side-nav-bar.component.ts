@@ -1,21 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Common } from '../../../../../helpers/Common';
 
 @Component({
-  selector: 'app-side-nav-bar',
-  templateUrl: './side-nav-bar.component.html',
-  styleUrls: ['./side-nav-bar.component.css']
+    selector: 'app-side-nav-bar',
+    templateUrl: './side-nav-bar.component.html',
+    styleUrls: ['./side-nav-bar.component.css'],
 })
-export class SideNavBarComponent implements OnInit {
-  @Input() id: string;
-  @Input() collectorsList: string[] = [];
-  @Input() currentCollector: string;
-  constructor() { }
+export class SideNavBarComponent {
+    @Input() id: string;
 
-  ngOnInit(): void {
-  }
+    @Input() collectorsList: string[] = [];
 
-  extractCollectorName(collector: string): string {
-    return Common.extractCollectorName(collector);
-  }
+    @Input() currentCollector: string;
+
+    extractCollectorName(collector: string): string {
+        return Common.extractCollectorName(collector);
+    }
 }

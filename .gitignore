@@ -28,6 +28,7 @@
 /.sass-cache
 /connect.lock
 /coverage
+/coverage.xml
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
@@ -37,3 +38,14 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+package-lock.json
+
+# Yarn 2.x files
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

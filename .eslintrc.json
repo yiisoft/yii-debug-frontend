@@ -1,0 +1,58 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "node": true,
+    "jasmine": true,
+    "protractor": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.*?.json",
+          "e2e/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        // AirBnB Styleguide rules
+        "airbnb-typescript/base",
+        // Settings for Prettier
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "import/prefer-default-export": 0,
+        "class-methods-use-this": 1,
+        "@typescript-eslint/no-floating-promises": 1
+      }
+    },
+    {
+      "files": [
+        "*.component.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {
+        "max-len": [
+          "error",
+          {
+            "code": 140
+          }
+        ]
+      }
+    }
+  ]
+}

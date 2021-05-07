@@ -1,0 +1,197 @@
+.yii-spinner {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.yii-spinner-container-overlay {
+    animation: yii-spinner-animate-ball-two 1.45s infinite;
+    -o-animation: yii-spinner-animate-ball-two 1.45s infinite;
+    -ms-animation: yii-spinner-animate-ball-two 1.45s infinite;
+    -webkit-animation: yii-spinner-animate-ball-two 1.45s infinite;
+    -moz-animation: yii-spinner-animate-ball-two 1.45s infinite;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    margin: auto;
+    top: 50%;
+}
+
+.yii-spinner-internal {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+}
+
+.yii-spinner-ball {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.yii-spinner-ball-1, .yii-spinner-ball-2, .yii-spinner-ball-3 {
+    position: absolute;
+    animation: yii-spinner-animate-ball-one 1.45s infinite ease;
+    -o-animation: yii-spinner-animate-ball-one 1.45s infinite ease;
+    -ms-animation: yii-spinner-animate-ball-one 1.45s infinite ease;
+    -webkit-animation: yii-spinner-animate-ball-one 1.45s infinite ease;
+    -moz-animation: yii-spinner-animate-ball-one 1.45s infinite ease;
+}
+
+.yii-spinner-ball-1 {
+    background-color: rgb(235, 111, 58);
+    top: 0;
+    left: 0;
+}
+
+.yii-spinner-ball-2 {
+    background-color: rgb(124, 199, 52);
+    top: 0;
+    left: 24px;
+}
+
+.yii-spinner-ball-3 {
+    background-color: rgb(62, 127, 202);
+    top: 22px;
+    left: 12px;
+}
+
+
+@keyframes yii-spinner-animate-ball-one {
+    0% {
+        position: absolute;
+    }
+    50% {
+        top: 12px;
+        left: 12px;
+        position: absolute;
+        opacity: 0.5;
+    }
+    100% {
+        position: absolute;
+    }
+}
+
+@-o-keyframes yii-spinner-animate-ball-one {
+    0% {
+        position: absolute;
+    }
+    50% {
+        top: 12px;
+        left: 12px;
+        position: absolute;
+        opacity: 0.5;
+    }
+    100% {
+        position: absolute;
+    }
+}
+
+@-ms-keyframes yii-spinner-animate-ball-one {
+    0% {
+        position: absolute;
+    }
+    50% {
+        top: 12px;
+        left: 12px;
+        position: absolute;
+        opacity: 0.5;
+    }
+    100% {
+        position: absolute;
+    }
+}
+
+@-webkit-keyframes yii-spinner-animate-ball-one {
+    0% {
+        position: absolute;
+    }
+    50% {
+        top: 12px;
+        left: 12px;
+        position: absolute;
+        opacity: 0.5;
+    }
+    100% {
+        position: absolute;
+    }
+}
+
+@-moz-keyframes yii-spinner-animate-ball-one {
+    0% {
+        position: absolute;
+    }
+    50% {
+        top: 12px;
+        left: 12px;
+        position: absolute;
+        opacity: 0.5;
+    }
+    100% {
+        position: absolute;
+    }
+}
+
+@keyframes yii-spinner-animate-ball-two {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(360deg) scale(1.3);
+    }
+    100% {
+        transform: rotate(720deg) scale(1);
+    }
+}
+
+@-o-keyframes yii-spinner-animate-ball-two {
+    0% {
+        -o-transform: rotate(0deg) scale(1);
+    }
+    50% {
+        -o-transform: rotate(360deg) scale(1.3);
+    }
+    100% {
+        -o-transform: rotate(720deg) scale(1);
+    }
+}
+
+@-ms-keyframes yii-spinner-animate-ball-two {
+    0% {
+        -ms-transform: rotate(0deg) scale(1);
+    }
+    50% {
+        -ms-transform: rotate(360deg) scale(1.3);
+    }
+    100% {
+        -ms-transform: rotate(720deg) scale(1);
+    }
+}
+
+@-webkit-keyframes yii-spinner-animate-ball-two {
+    0% {
+        -webkit-transform: rotate(0deg) scale(1);
+    }
+    50% {
+        -webkit-transform: rotate(360deg) scale(1.3);
+    }
+    100% {
+        -webkit-transform: rotate(720deg) scale(1);
+    }
+}
+
+@-moz-keyframes yii-spinner-animate-ball-two {
+    0% {
+        -moz-transform: rotate(0deg) scale(1);
+    }
+    50% {
+        -moz-transform: rotate(360deg) scale(1.3);
+    }
+    100% {
+        -moz-transform: rotate(720deg) scale(1);
+    }
+}

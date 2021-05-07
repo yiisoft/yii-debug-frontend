@@ -3,18 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {ErrorService} from './error.service';
+import { Response } from '../models/Response';
+import { ObjectLiteral } from '../models/ObjectLiteral';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class ApiService {
+    constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient,
-              private errorService: ErrorService) { }
-
-  get(method: string, params?: any): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}` + method, {params})
-      .pipe(map(infos => infos.data));
-  }
+    get<T>(method: string, params?: ObjectLiteral): Observable<T> {
+        return this.http
+            .get(`${environment.apiUrl}${method}`, { params })
+            .pipe(map((infos: Response<T>) => infos.data));
+    }
 }

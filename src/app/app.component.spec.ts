@@ -1,35 +1,32 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Overlay } from '@angular/cdk/overlay';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-      ],
-      declarations: [
-        AppComponent,
-      ],
-    }).compileComponents();
-  }));
+    beforeEach(
+        waitForAsync(async () => {
+            await TestBed.configureTestingModule({
+                imports: [RouterTestingModule, MatSidenavModule],
+                declarations: [AppComponent],
+                providers: [MatSnackBar, Overlay],
+            }).compileComponents();
+        }),
+    );
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    it('should create the app', async () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const app: AppComponent = fixture.debugElement.componentInstance;
+        await expect(app).toBeTruthy();
+    });
 
-  it(`should have as title 'Yii Debugger'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Yii Debugger');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Yii Debugger!');
-  });
+    it(`should have as title 'Yii Debugger'`, async () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const app: AppComponent = fixture.debugElement.componentInstance;
+        await expect(app.title).toEqual('Yii Debugger');
+    });
 });

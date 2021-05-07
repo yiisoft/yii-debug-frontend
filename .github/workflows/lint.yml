@@ -1,0 +1,47 @@
+on:
+    - pull_request
+    - push
+
+name: lint
+
+jobs:
+    tests:
+        name: Node ${{ matrix.node-version }}-${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+
+        strategy:
+          matrix:
+            os:
+                - ubuntu-latest
+
+            node-version:
+                - 12.x
+                - 14.x
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Determine yarn cache directory
+              run: echo "YARN_CACHE_DIR=$(yarn cache dir)" >> $GITHUB_ENV
+
+            - name: Cache node modules
+              uses: actions/cache@v2
+              with:
+                path: ${{ env.YARN_CACHE_DIR }}
+                key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                    ${{ runner.os }}-node-
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                node-version: ${{ matrix.node-version }}
+
+            - name: Install Dependencies
+              run: yarn install
+
+            - name: Run lint
+              uses: reviewdog/action-eslint@v1
+              with:
+                reporter: github-pr-check
