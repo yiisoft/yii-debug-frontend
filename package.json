@@ -36,7 +36,7 @@
     "@angular/router": "~11.0.7",
     "core-js": "^3.6.5",
     "ngx-json-viewer": "^3.0.2",
-    "rxjs": "~6.6.0",
+    "rxjs": "~6.6.2",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
@@ -52,7 +52,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~14.0.22",
-    "@typescript-eslint/eslint-plugin": "4.3.0",
+    "@typescript-eslint/eslint-plugin": "4.4.1",
     "@typescript-eslint/parser": "4.3.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-typescript": "^12.0.0",
